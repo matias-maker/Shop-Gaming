@@ -46,17 +46,9 @@
         input {
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #444;
+            border: none;
             border-radius: 5px;
             font-size: 16px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #ff4b5c;
-            box-shadow: 0 0 5px rgba(255, 75, 92, 0.5);
         }
 
         .submit-button {
@@ -67,34 +59,41 @@
             border-radius: 5px;
             font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s;
         }
 
         .submit-button:hover {
             background-color: #ff3a4a;
-            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h2>Formulario de Compra</h2>
-        <form action="idk.php" method="POST">
+        <form action="compra.html" method="POST">
             <label for="nombre">Nombre completo:</label>
-            <input type="text" id="nombre" name="nombre" required aria-label="Nombre completo">
+            <input type="text" id="nombre" name="nombre" required>
 
             <label for="tarjeta">Número de tarjeta:</label>
-            <input type="number" id="tarjeta" name="tarjeta" required aria-label="Número de tarjeta" pattern="\d{16}" title="Ingrese un número de tarjeta válido de 16 dígitos">
+            <input type="text" id="tarjeta" name="tarjeta" required>
 
             <label for="nip">NIP:</label>
-            <input type="password" id="nip" name="nip" required aria-label="NIP" minlength="4" maxlength="6" title="Ingrese un NIP de 4 a 6 dígitos">
+            <input type="password" id="nip" name="nip" required>
 
             <label for="banco">Banco:</label>
-            <input type="text" id="banco" name="banco" required aria-label="Banco">
+            <input type="text" id="banco" name="banco" required>
 
             <button type="submit" class="submit-button">Enviar</button>
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevenir el envío real del formulario
+                window.location.href = "compra.html"; // Redirigir a compra.html
+            });
+        });
+    </script>    
 </body>
 </html>
-
